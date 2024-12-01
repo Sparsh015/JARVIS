@@ -89,7 +89,6 @@ if __name__ == "__main__":
         elif 'open stackoverflow' in query:
             webbrowser.open("stackoverflow.com")   
 
-
         elif 'play music' in query:
             music_dir = 'D:\\songs'
             songs = os.listdir(music_dir)
@@ -105,7 +104,18 @@ if __name__ == "__main__":
             os.startfile(codePath)
 
         elif "joke" in query:
-            tell_joke()    
+            tell_joke()   
+        
+        elif 'email to sparsh' in query:
+            try:
+                speak("What should I say?")
+                content = takeCommand()
+                to = "sparsh.1518@gmail.com"    
+                sendEmail(to, content)
+                speak("Email has been sent!")
+            except Exception as e:
+                print(e)
+                speak("Sorry my friend. I am not able to send this email")  
 
         elif "exit" in query or "quit" in query:
             speak("Goodbye, Sir.")
